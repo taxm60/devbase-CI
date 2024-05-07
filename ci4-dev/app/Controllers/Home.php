@@ -7,8 +7,8 @@ class Home extends BaseController
     public function index(): string
     {
         $db = db_connect();
-        $db->listTables();
-
-        return view('welcome_message');
+        $db->query('select 1');
+        return (string) $db->getLastQuery();
+        //return view('welcome_message');
     }
 }
