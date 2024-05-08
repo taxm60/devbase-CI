@@ -8,17 +8,18 @@ class CreateArticleTable extends Migration
 {
     public function up()
     {
-        $this->forge->addField(
-            [
-                "id"       => ["type"=> "INT", "null"=>false, "auto_increment"=>true],
-                "title"    => ["type"=> "VARCHAR", "null"=>false],
-                "content"  => ["type"=> "TEXT", "null"=>false]
-            ]
+        $col_ary = array(
+            "id"       => ["type"=> "INT", "null"=>false, "auto_increment"=>true],
+            "title"    => ["type"=> "VARCHAR", "constraint" => 255 ],
+            "content"  => ["type"=> "VARCHAR", "constraint" => 300 , "null"=>true],
         );
 
+        $this->forge->addField($col_ary);
         $this->forge->addPrimaryKey("id");
         $this->forge->createTable("article");
     }
+
+    
 
     public function down()
     {
