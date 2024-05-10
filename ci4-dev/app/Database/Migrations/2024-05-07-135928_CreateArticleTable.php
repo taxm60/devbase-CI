@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Database\Migrations;
-
 use CodeIgniter\Database\Migration;
 
 class CreateArticleTable extends Migration
@@ -19,10 +18,8 @@ class CreateArticleTable extends Migration
         $this->forge->createTable("article");
     }
 
-    
-
     public function down()
     {
-        $this->forge->dropTable("article");
+        $this->forge->dropTable("article");        
     }
 }
